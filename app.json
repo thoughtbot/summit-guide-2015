@@ -1,0 +1,7 @@
+{
+    "name": "Summit Guide",
+    "description": "A guide for Summer Summit 2015",
+    "repository": "https://github.com/joshuaogle/summit-guide",
+    "logo": "http://joshuaogle.github.com/summit-guide/www/img/logo.png",
+    "keywords": ["ionic"]
+}
