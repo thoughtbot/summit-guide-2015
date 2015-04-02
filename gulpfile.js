@@ -6,6 +6,8 @@ var sass = require("gulp-sass");
 var rename = require("gulp-rename");
 var sh = require("shelljs");
 var coffee = require("gulp-coffee");
+var bourbon = require("node-bourbon");
+var neat = require("node-neat");
 
 var paths = {
   assets: "www/assets/",
@@ -17,7 +19,10 @@ gulp.task("default", ["sass"]);
 
 gulp.task("sass", function(done) {
   gulp.src(paths.sass)
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: bourbon.includePaths,
+      includePaths: neat.includePaths
+    }))
     .pipe(gulp.dest(paths.assets))
     .on("end", done);
 });
