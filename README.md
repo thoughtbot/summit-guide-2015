@@ -53,7 +53,7 @@ and may be redistributed under the terms specified in the [license](LICENSE.md).
 
 ## About thoughtbot
 
-[![thoughtbot](http://thoughtbot.github.io/images/signature.svg)][hire]
+![thoughtbot](http://thoughtbot.github.io/images/signature.svg)
 
 Summit Guide is maintained and funded by thoughtbot, inc.
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
