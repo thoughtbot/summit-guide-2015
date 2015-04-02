@@ -5,9 +5,11 @@ var concat = require("gulp-concat");
 var sass = require("gulp-sass");
 var rename = require("gulp-rename");
 var sh = require("shelljs");
+var coffee = require("gulp-coffee");
 
 var paths = {
   assets: "www/assets/",
+  coffee: ["./source/assets/javascripts/**/*.coffee"],
   sass: ["./source/assets/stylesheets/**/*.scss"]
 };
 
@@ -20,8 +22,19 @@ gulp.task("sass", function(done) {
     .on("end", done);
 });
 
+gulp.task("coffeescript", function() {
+  return gulp.src(paths.coffee)
+    .pipe(coffee())
+    .pipe(concat("application.js"))
+    .pipe(gulp.dest(paths.assets));
+});
+
+coffeeStream = coffee({bare: true});
+coffeeStream.on('error', function(err) {});
+
 gulp.task("watch", function() {
   gulp.watch(paths.sass, ["sass"]);
+  gulp.watch(paths.coffee, ["coffeescript"]);
 });
 
 gulp.task("install", function() {
