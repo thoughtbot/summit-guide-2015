@@ -15,11 +15,9 @@
     %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"}
 
   %body{ng-app: "summit-guide", ng-controller: "MapCtrl"}
-    %ion-header-bar.bar-stable
-      %h1.title Map
+    %app-header
 
     %ion-content{scroll: "false"}
-      %map{on-create: "mapCreated(map)"}
+      %ng-include{src: "'templates/map.html'"}
 
-    %ion-footer-bar.bar-stable
-      %a.button.button-icon.icon.ion-navigate{ng-click: "centerOnMe()"}
+    %app-toolbar
