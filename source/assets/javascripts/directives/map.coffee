@@ -9,7 +9,7 @@ angular.module("summit-guide")
     link: ($scope, $element, $attr) ->
       initialize = ->
         mapOptions =
-          center: new (google.maps.LatLng)(43.07493, -89.381388)
+          center: new (google.maps.LatLng)(39.746541, -104.993922)
           zoom: 16
           mapTypeId: google.maps.MapTypeId.ROADMAP
 

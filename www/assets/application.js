@@ -1,16 +1,34 @@
 (function() {
-  angular.module("summit-guide", ["ionic"]).run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
-      if (window.StatusBar) {
-        StatusBar.styleDefault();
-      }
+  angular.module("summit-guide", ["ionic"]).run(function($ionicPlatform) {}).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state("explore", {
+      url: "/",
+      templateUrl: "templates/explore.html",
+      controller: "ExploreController"
+    }).state("picks", {
+      url: "/picks",
+      templateUrl: "templates/picks.html"
+    }).state("summit", {
+      url: "/summit",
+      templateUrl: "templates/summit.html"
+    }).state("health", {
+      url: "/health",
+      templateUrl: "templates/health.html"
+    }).state("welcome", {
+      url: "/welcome",
+      templateUrl: "templates/welcome.html"
     });
+    $urlRouterProvider.otherwise('/welcome');
   });
 
 }).call(this);
 
 (function() {
-  angular.module("summit-guide").controller("MapCtrl", function($scope, $ionicLoading) {
+  angular.module("summit-guide").controller("AppController", function($scope, $ionicLoading) {});
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").controller("ExploreController", function($scope, $ionicLoading) {
     $scope.mapCreated = function(map) {
       $scope.map = map;
     };
@@ -73,7 +91,7 @@
         initialize = function() {
           var map, mapOptions;
           mapOptions = {
-            center: new google.maps.LatLng(43.07493, -89.381388),
+            center: new google.maps.LatLng(39.746541, -104.993922),
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };

@@ -1,5 +1,5 @@
 angular.module("summit-guide")
-  .controller "MapCtrl", ($scope, $ionicLoading) ->
+  .controller "ExploreController", ($scope, $ionicLoading) ->
     $scope.mapCreated = (map) ->
       $scope.map = map
       return

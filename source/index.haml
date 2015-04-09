@@ -14,10 +14,11 @@
     %script{src: "assets/application.js"}
     %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"}
 
-  %body{ng-app: "summit-guide", ng-controller: "MapCtrl"}
-    %app-header
+  %body{ng-app: "summit-guide", ng-controller: "AppController"}
+    %ion-side-menus
+      %ion-side-menu-content
+        %app-header
 
-    %ion-content{scroll: "false"}
-      %ng-include{src: "'templates/map.html'"}
+        %ion-nav-view.has-header
 
-    %app-toolbar
+        %app-toolbar
