@@ -6,6 +6,16 @@
   display: flex;
   justify-content: center;
   min-height: 30vh;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    @include radial-gradient(rgba($black, 0.25), rgba($black, 0.15));
+    @include position(absolute, 0 0 0 0);
+    content: "";
+    display: block;
+    z-index: -1;
+  }
 
   h2 {
     color: $white;

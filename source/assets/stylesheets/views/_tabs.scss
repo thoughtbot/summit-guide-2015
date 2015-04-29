@@ -2,6 +2,8 @@
   background: $dark-gray;
 
   .tabs {
+    background: $dark-gray;
+    border-top: 0;
     padding: 0;
 
     .tab-item {
@@ -10,17 +12,21 @@
       &:active,
       &.activated {
         background: $dark-gray center 8px no-repeat;
-        border: none;
+        border: 0px solid shade($dark-gray, 50%);
+        border-right-width: 1px;
         color: $white;
         font-size: 11px;
         margin-top: 0;
         padding-top: 28px;
         opacity: 1;
+
+        &:last-child {
+          border-right: none;
+        }
       }
 
       &.tab-item-active {
         background-color: tint($dark-gray, 12%);
-        border: none;
         margin-top: 0;
       }
 

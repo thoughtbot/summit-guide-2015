@@ -12,10 +12,15 @@ angular.module("summit-guide", ["ionic"])
       .state "picks",
         url: "/picks"
         templateUrl: "templates/picks.html"
+        controller: "PicksController"
 
       .state "list",
-        url: "/picks/:id"
+        url: "/:list"
         templateUrl: "templates/list.html"
+        controller: "ListController"
+        resolve:
+          list: ($stateParams, PicksService) ->
+            PicksService.get($stateParams.list)
 
       .state "summit",
         url: "/summit"
@@ -29,8 +34,8 @@ angular.module("summit-guide", ["ionic"])
         url: "/welcome"
         templateUrl: "templates/welcome.html"
 
-    $urlRouterProvider.otherwise("/explore");
+    $urlRouterProvider.otherwise("/")
 
-    $ionicConfigProvider.tabs.position("bottom");
+    $ionicConfigProvider.tabs.position("bottom")
 
     return
