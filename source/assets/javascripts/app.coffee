@@ -2,7 +2,7 @@ angular.module("summit-guide", ["ionic"])
   .run ($ionicPlatform) ->
     return
 
-  .config ($stateProvider, $urlRouterProvider) ->
+  .config ($stateProvider, $urlRouterProvider, $ionicConfigProvider) ->
     $stateProvider
       .state "explore",
         url: "/"
@@ -26,5 +26,7 @@ angular.module("summit-guide", ["ionic"])
         templateUrl: "templates/welcome.html"
 
     $urlRouterProvider.otherwise('/welcome');
+
+    $ionicConfigProvider.tabs.position('bottom');
 
     return

@@ -21,6 +21,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Bourbon Suite
 @import "bourbon";
 @import "neat";
+@import "modules/all";
+@import "patterns/all";
+@import "views/all";
 
 // Summit Guide
 @import "map";
