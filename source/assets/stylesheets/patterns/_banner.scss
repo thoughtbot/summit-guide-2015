@@ -1,0 +1,27 @@
+.banner {
+  align-items: center;
+  background-color: $red;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 30vh;
+
+  h2 {
+    color: $white;
+    font-size: 24px;
+    line-height: 2em;
+    margin: 0;
+    text-align: center;
+
+    &::before,
+    &::after {
+      @include size(1em 3px);
+      content: "";
+      border-bottom: 1px solid $white;
+      border-top: 1px solid $white;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

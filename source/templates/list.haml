@@ -1,0 +1,13 @@
+.page
+  .card
+    .item.item-divider
+      %img.avatar{src: "/assets/avatar.svg"}
+      %h2 {{ name }}
+      %p
+        %span.address {{ address }}
+        %span.hours {{ hours.open }}-{{ hours.close }}
+    .item.item-text-wrap
+      %p
+        <strong>Best Item:</strong> {{ recommended.name }}
+      %p
+        <strong>Why I Love It:</strong> {{ recommended.why }}

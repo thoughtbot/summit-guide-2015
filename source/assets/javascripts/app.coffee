@@ -13,6 +13,10 @@ angular.module("summit-guide", ["ionic"])
         url: "/picks"
         templateUrl: "templates/picks.html"
 
+      .state "list",
+        url: "/picks/:id"
+        templateUrl: "templates/list.html"
+
       .state "summit",
         url: "/summit"
         templateUrl: "templates/summit.html"
@@ -25,8 +29,8 @@ angular.module("summit-guide", ["ionic"])
         url: "/welcome"
         templateUrl: "templates/welcome.html"
 
-    $urlRouterProvider.otherwise('/welcome');
+    $urlRouterProvider.otherwise("/explore");
 
-    $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.tabs.position("bottom");
 
     return

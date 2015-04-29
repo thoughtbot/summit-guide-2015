@@ -9,8 +9,7 @@
       &:hover,
       &:active,
       &.activated {
-        background-position: center 8px;
-        background-repeat: no-repeat;
+        background: $dark-gray center 8px no-repeat;
         border: none;
         color: $white;
         font-size: 11px;
@@ -20,7 +19,7 @@
       }
 
       &.tab-item-active {
-        background-color: tint($dark-gray, 15%);
+        background-color: tint($dark-gray, 12%);
         border: none;
         margin-top: 0;
       }

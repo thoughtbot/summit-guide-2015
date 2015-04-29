@@ -1,0 +1,16 @@
+.card {
+  .item-divider {
+    background: $dark-gray;
+    border: 1px solid shade($dark-gray, 50%);
+
+    * {
+      color: $white;
+    }
+  }
+
+  .item-text-wrap {
+    background-color: $light-gray;
+    border: 1px solid $base-border-color;
+    border-top: none;
+  }
+}
