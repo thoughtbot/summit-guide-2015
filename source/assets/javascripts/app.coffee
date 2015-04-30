@@ -15,7 +15,7 @@ angular.module("summit-guide", ["ionic"])
         controller: "PicksController"
 
       .state "list",
-        url: "/:list"
+        url: "/picks/:list"
         templateUrl: "templates/list.html"
         controller: "ListController"
         resolve:
@@ -37,5 +37,3 @@ angular.module("summit-guide", ["ionic"])
     $urlRouterProvider.otherwise("/")
 
     $ionicConfigProvider.tabs.position("bottom")
-
-    return

@@ -27,6 +27,7 @@
 
       &.tab-item-active {
         background-color: tint($dark-gray, 12%);
+        border-top: none;
         margin-top: 0;
       }
 

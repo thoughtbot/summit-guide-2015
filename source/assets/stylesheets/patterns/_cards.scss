@@ -15,7 +15,25 @@
 
   .item-text-wrap {
     background-color: $light-gray;
-    border: 1px solid $base-border-color;
+    border: $base-border;
     border-top: none;
+  }
+
+  .hours,
+  .address {
+    margin-right: 1em;
+
+    &::before {
+      @include size(12px);
+      background: url("/assets/clock.svg") left center no-repeat;
+      content: "";
+      display: inline-block;
+      margin-right: 0.25em;
+      vertical-align: -1px;
+    }
+  }
+
+  .address::before {
+    background-image: url("/assets/location.svg");
   }
 }

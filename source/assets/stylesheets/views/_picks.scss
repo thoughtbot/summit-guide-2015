@@ -1,11 +1,7 @@
-.picks-restaurants {
-  background-image: url("/assets/banner-restaurants.png");
-}
+$picks: restaurants, coffeeshops, bars, dispensaries, goods, activities, neighborhoods;
 
-.picks-coffeeshops {
-  background-image: url("/assets/banner-coffeeshops.png");
-}
-
-.picks-bars {
-  background-image: url("/assets/banner-bars.png");
+@each $pick in $picks {
+  .picks-#{$pick} {
+    background-image: url("/assets/banner-#{$pick}.png");
+  }
 }

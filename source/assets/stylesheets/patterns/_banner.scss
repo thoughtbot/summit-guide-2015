@@ -10,7 +10,7 @@
   z-index: 1;
 
   &::after {
-    @include radial-gradient(rgba($black, 0.25), rgba($black, 0.15));
+    @include radial-gradient(center, ellipse cover, rgba($black, 0.35), rgba($black, 0.15));
     @include position(absolute, 0 0 0 0);
     content: "";
     display: block;
@@ -19,10 +19,11 @@
 
   h2 {
     color: $white;
-    font-size: 24px;
+    font-size: $base-font-size * 1.5;
     line-height: 2em;
     margin: 0;
     text-align: center;
+    text-shadow: 0 1px 3px rgba($black, 0.35);
 
     &::before,
     &::after {

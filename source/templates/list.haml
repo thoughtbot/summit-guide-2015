@@ -1,15 +1,3 @@
-.page
-  .card{ng-repeat: "place in list"}
-    .item.item-divider
-      %img.avatar{ng-src: "/assets/{{place.recommendation.by}}.png"}
-      %h2 {{ place.name }}
-      %p
-        %span.address {{ place.address }}
-        %span.hours {{ place.hours.open }}-{{ place.hours.close }}
-    .item.item-text-wrap{{ng-if: place.recommendation.name}}
-      %p
-        %strong< Best Item:
-        {{ place.recommendation.name }}
-      %p
-        %strong< Why I Love It:
-        {{ place.recommendation.why }}
+%ion-scroll
+  %div{ng-repeat: "place in list"}
+    %div{ng-include: "'templates/_card.html'"}

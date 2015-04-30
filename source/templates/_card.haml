@@ -1,0 +1,21 @@
+.card
+  .item.item-divider
+    %img.avatar{ng-src: "/assets/{{place.recommendation.by}}.png", ng-show: "place.recommendation.by"}
+
+    %h2 {{ place.name }}
+
+    %p
+      %span.address{ng-show: "place.address"}
+        {{ place.address }}
+
+      %span.hours{ng-show: "place.hours.open"}
+        {{ place.hours.open }}-{{ place.hours.close }}
+
+  .item.item-text-wrap{ng-show: "place.recommendation.name"}
+    %p
+      %strong< Best Item:
+      {{ place.recommendation.name }}
+
+    %p
+      %strong< Why I Love It:
+      {{ place.recommendation.why }}
