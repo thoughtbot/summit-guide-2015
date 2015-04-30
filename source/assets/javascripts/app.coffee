@@ -37,3 +37,6 @@ angular.module("summit-guide", ["ionic"])
     $urlRouterProvider.otherwise("/")
 
     $ionicConfigProvider.tabs.position("bottom")
+    $ionicConfigProvider.backButton.text("").icon("ion-arrow-left-c")
+    $ionicConfigProvider.views.transition('ios')
+    $ionicConfigProvider.navBar.transition('android')
