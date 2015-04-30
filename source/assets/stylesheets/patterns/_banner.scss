@@ -19,8 +19,8 @@
 
   h2 {
     color: $white;
-    font-size: $base-font-size * 1.5;
-    line-height: 2em;
+    font-size: $font-larger;
+    line-height: 1.5em;
     margin: 0;
     text-align: center;
     text-shadow: 0 1px 3px rgba($black, 0.35);
@@ -33,6 +33,7 @@
       border-top: 1px solid $white;
       display: block;
       margin: 0 auto;
+      opacity: 0.66;
     }
   }
 }

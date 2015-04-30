@@ -1,0 +1,4 @@
+@include font-face("calluna", "/assets/calluna-regular", $file-formats: woff);
+@include font-face("calluna", "/assets/calluna-semibold", 500, $file-formats: woff);
+@include font-face("calluna", "/assets/calluna-bold", 700, $file-formats: woff);
+@include font-face("freight", "/assets/freight-book", $file-formats: woff);

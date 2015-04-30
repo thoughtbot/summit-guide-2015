@@ -1,11 +1,15 @@
 section {
   border-bottom: $base-border;
   padding: 3em 1em;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .section-title {
   color: $red;
-  font-size: $base-font-size * 1.5;
-  margin: 0 0 2em;
+  font-size: $font-larger;
+  margin: 0 0 1em;
   text-align: center;
 }

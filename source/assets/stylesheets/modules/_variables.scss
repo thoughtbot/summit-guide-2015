@@ -1,9 +1,9 @@
 // Typography
-$base-font-family: $helvetica;
-$heading-font-family: $base-font-family;
+$base-font-family: "freight", $helvetica;
+$heading-font-family: "calluna", $base-font-family;
 
 // Font Sizes
-$base-font-size: 1em;
+$base-font-size: 1rem;
 
 // Line height
 $base-line-height: 1.5;
@@ -27,6 +27,11 @@ $black: #000;
 $base-background-color: $white;
 $base-font-color: $dark-gray;
 $action-color: $red;
+
+// Font Sizes
+$font-small: $base-font-size * 0.85;
+$font-large: $base-font-size * 1.25;
+$font-larger: $base-font-size * 1.5;
 
 // Border
 $base-border-color: #DDD;

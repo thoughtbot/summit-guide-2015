@@ -1,0 +1,10 @@
+@mixin section-icon($icon) {
+  &::before {
+    @include size(2rem);
+    background: $red url("/assets/icon-#{$icon}.svg") center center no-repeat;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    margin: 0 auto 0.5em;
+  }
+}

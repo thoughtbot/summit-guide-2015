@@ -12,7 +12,7 @@
 
   .location {
     @include span-columns(6);
-    font-size: $base-font-size * 0.8;
+    font-size: $font-small;
   }
 }
 
@@ -34,7 +34,7 @@
 
     .day-date {
       @include position(absolute, 0 0 null 0);
-      font-size: 0.7rem;
+      font-size: $font-small;
       line-height: 1.75rem;
     }
   }

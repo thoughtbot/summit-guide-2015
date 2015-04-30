@@ -14,6 +14,7 @@ var paths = {
   assets: "www/assets/",
   build: "www/",
   coffee: ["./source/assets/javascripts/**/*.coffee"],
+  fonts: ["./source/assets/fonts/*"],
   haml: ["./source/**/*.haml"],
   images: ["./source/assets/images/**/*"],
   lib: ["./lib/**/*"],
@@ -51,6 +52,11 @@ gulp.task("images", function() {
     .pipe(gulp.dest(paths.assets));
 });
 
+gulp.task("fonts", function() {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.assets));
+});
+
 gulp.task("lib", function() {
   return gulp.src(paths.lib, {
       base: "."
@@ -61,6 +67,7 @@ gulp.task("lib", function() {
 gulp.task("watch", function() {
   gulp.watch(paths.sass, ["sass"]);
   gulp.watch(paths.coffee, ["coffeescript"]);
+  gulp.watch(paths.fonts, ["fonts"]);
   gulp.watch(paths.haml, ["haml"]);
   gulp.watch(paths.images, ["images"]);
   gulp.watch(paths.lib, ["lib"]);
@@ -73,4 +80,4 @@ gulp.task("install", function() {
     });
 });
 
-gulp.task("default", ["sass", "coffeescript", "haml", "images", "lib"]);
+gulp.task("default", ["sass", "coffeescript", "fonts", "haml", "images", "lib"]);

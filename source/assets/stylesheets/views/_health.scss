@@ -1,0 +1,10 @@
+.banner-health {
+  background-image: url("/assets/banner-health.png");
+}
+
+$health-sections: hydrate, oxygen, sun, drinking, weed;
+@each $section in $health-sections {
+  .section-#{$section} .section-title {
+    @include section-icon($section);
+  }
+}
