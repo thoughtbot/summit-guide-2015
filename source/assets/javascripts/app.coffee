@@ -25,6 +25,7 @@ angular.module("summit-guide", ["ionic"])
       .state "summit",
         url: "/summit"
         templateUrl: "templates/summit.html"
+        controller: "SummitController"
 
       .state "health",
         url: "/health"

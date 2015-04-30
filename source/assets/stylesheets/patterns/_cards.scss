@@ -11,26 +11,17 @@
       float: right;
       margin: 0.2em 0 0 1em;
     }
+
+    span {
+      font-size: $base-font-size * 0.8;
+      margin-right: 1em;
+    }
   }
 
   .item-text-wrap {
     background-color: $light-gray;
     border: $base-border;
     border-top: none;
-  }
-
-  .hours,
-  .address {
-    margin-right: 1em;
-
-    &::before {
-      @include size(12px);
-      background: url("/assets/clock.svg") left center no-repeat;
-      content: "";
-      display: inline-block;
-      margin-right: 0.25em;
-      vertical-align: -1px;
-    }
   }
 
   .address::before {

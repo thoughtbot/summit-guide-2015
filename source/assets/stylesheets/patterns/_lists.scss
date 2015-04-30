@@ -20,12 +20,22 @@ ol {
 dl {
   margin-bottom: $small-spacing;
 
+  dt, dd {
+    display: inline-block;
+  }
+
   dt {
+    font-size: $base-font-size * 0.8;
     font-weight: bold;
     margin-top: $small-spacing;
+    padding-right: 4%;
+    text-align: right;
+    vertical-align: 0.1em;
+    width: 21%;
   }
 
   dd {
     margin: 0;
+    width: 75%;
   }
 }

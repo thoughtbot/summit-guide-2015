@@ -3,8 +3,8 @@ restaurants = [
     name: "Denver Biscuit Co"
     address: "5412 S. Broadway St"
     hours:
-      open: 900
-      close: 2300
+      open: "0900"
+      close: "2300"
     recommendation:
       by: "corwin"
       name: "The Franklin"
@@ -14,8 +14,8 @@ restaurants = [
     name: "Illegal Pete's"
     address: "1530 16th St #101"
     hours:
-      open: 700
-      close: 2400
+      open: "0700"
+      close: "2400"
     recommendation:
       by: "joshua"
       name: "The Big Potato"

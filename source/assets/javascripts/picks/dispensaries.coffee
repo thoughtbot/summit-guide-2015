@@ -3,8 +3,8 @@ dispensaries = [
     name: "Native Roots"
     address: "1555 Champa St"
     hours:
-      open: 900
-      close: 1900
+      open: "0900"
+      close: "1900"
   }
 ]
 

@@ -5,11 +5,13 @@
     %h2 {{ place.name }}
 
     %p
-      %span.address{ng-show: "place.address"}
+      %span{ng-show: "place.address"}
+        %i.icon.ion-location
         {{ place.address }}
 
-      %span.hours{ng-show: "place.hours.open"}
-        {{ place.hours.open }}-{{ place.hours.close }}
+      %span{ng-show: "place.hours.open"}
+        %i.icon.ion-clock
+        {{ place.hours.open | time }}-{{ place.hours.close | time }}
 
   .item.item-text-wrap{ng-show: "place.recommendation.name"}
     %p

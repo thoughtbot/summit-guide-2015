@@ -1,1 +1,44 @@
-Schedule
+%ion-scroll
+  .banner.banner-summit
+    %h2 Summer Summit 2015
+
+  %section.intro
+    %p Events will be happening at the Sheraton in Ballroom C. The Denver
+      office is also available for you to hangout, design, and build
+      projects in.
+
+    .locations
+      .location
+        %h3 Denver Office
+        .address
+          %i.icon.ion-location
+          1600 Champa St., #340
+        %a{href: "http://google.com/maps"}
+          %i.icon.ion-android-map
+          Get Directions
+
+      .location
+        %h3 Sheraton Downtown
+        .address
+          %i.icon.ion-location
+          1550 Court Pl.
+        %a{href: "http://google.com/maps"}
+          %i.icon.ion-android-map
+          Get Directions
+
+  %section.section-schedule
+    %h3.section-title Schedule
+
+    %div{ng-repeat: "(day, itinerary) in schedule"}
+      %h4.day
+        %i.icon.ion-calendar
+          %span.day-date {{ day | date: "dd" }}
+
+        .day-title {{ day | date: "EEEE" }}
+
+      %dl.itinerary
+        %dt{ng-repeat-start: "(time, title) in itinerary"}
+          {{ time | time }}
+
+        %dd{ng-repeat-end: true}
+          {{ title }}

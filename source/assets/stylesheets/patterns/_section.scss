@@ -1,0 +1,11 @@
+section {
+  border-bottom: $base-border;
+  padding: 3em 1em;
+}
+
+.section-title {
+  color: $red;
+  font-size: $base-font-size * 1.5;
+  margin: 0 0 2em;
+  text-align: center;
+}

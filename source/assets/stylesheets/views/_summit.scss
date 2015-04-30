@@ -1,0 +1,53 @@
+.banner-summit {
+  background-image: url("/assets/banner-summit.png");
+}
+
+.locations {
+  @include clearfix;
+  margin-top: 2em;
+
+  h3 {
+    margin: 0 0 0.5em;
+  }
+
+  .location {
+    @include span-columns(6);
+    font-size: $base-font-size * 0.8;
+  }
+}
+
+.day {
+  &::after {
+    @include size(100% 1px);
+    background: $light-gray;
+    content: "";
+    display: block;
+    margin-top: -0.5em;
+  }
+
+  .ion-calendar {
+    font-size: 1.5rem;
+    position: relative;
+    vertical-align: -0.1em;
+    width: auto;
+    z-index: 1;
+
+    .day-date {
+      @include position(absolute, 0 0 null 0);
+      font-size: 0.7rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  .day-title {
+    background: $white;
+    display: inline-block;
+    padding-right: 0.5em;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.itinerary {
+  margin-bottom: 5em;
+}
