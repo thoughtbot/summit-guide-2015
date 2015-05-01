@@ -3,8 +3,16 @@ angular.module("summit-guide")
     initialize = () ->
       mapOptions =
         center: new (google.maps.LatLng)(39.746541, -104.993922)
-        zoom: 16
+        zoom: 17
         mapTypeId: google.maps.MapTypeId.ROADMAP
+        styles: [
+          {
+            featureType: "poi"
+            stylers: [
+              visibility: "off"
+            ]
+          }
+        ]
 
       $element = document.getElementsByClassName("map")[0]
       map = new (google.maps.Map)($element, mapOptions)
@@ -43,6 +51,17 @@ angular.module("summit-guide")
         title: place.name
         icon: "/assets/#{list}-marker.svg"
       )
+
+      google.maps.event.addListener(marker, 'click', showCard)
+
+    showCard = ->
+      marker = this
+      marker.setAnimation(google.maps.Animation.BOUNCE)
+      setTimeout ->
+        marker.setAnimation(null)
+      , 700
+
+      map.panTo({lat: marker.position.A, lng: marker.position.F})
 
     if document.readyState == "complete"
       picks = PicksService.all()
