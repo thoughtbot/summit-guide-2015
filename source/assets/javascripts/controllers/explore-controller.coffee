@@ -16,30 +16,38 @@ angular.module("summit-guide")
       return map
 
     getPlaces = (picks) ->
-      array = []
-      for list, places of picks
-        for key, place of places
-          array.push place
-      return array
 
     markMap = (places, map) ->
-      for place in places
-        addMarker(place, map)
+      addOffice(map)
 
-    addMarker = (place, map) ->
+      for list, places of picks
+        for key, place of places
+          addMarker(place, list, map)
+
+    addOffice = (map) ->
+      office =
+        name: "thoughtbot Denver"
+        address: "1600 Champa St"
+        coordinates:
+          lat: 39.746498
+          long: -104.993246
+
+      addMarker(office, "office", map)
+
+    addMarker = (place, list, map) ->
       coordinates = new google.maps.LatLng(place.coordinates.lat, place.coordinates.long)
 
       marker = new google.maps.Marker(
         position: coordinates,
         map: map,
         title: place.name
+        icon: "/assets/#{list}-marker.svg"
       )
 
     if document.readyState == "complete"
-      map = initialize()
       picks = PicksService.all()
-      places = getPlaces(picks)
-      markMap(places, map)
+      map = initialize()
+      markMap(picks, map)
     else
       google.maps.event.addDomListener window, "load", initialize
     return
