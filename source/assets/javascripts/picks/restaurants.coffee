@@ -2,6 +2,9 @@ restaurants = [
   {
     name: "Denver Biscuit Co"
     address: "5412 S. Broadway St"
+    coordinates:
+      lat: 39.794618
+      long: -104.987326
     hours:
       open: "0900"
       close: "2300"
@@ -13,6 +16,9 @@ restaurants = [
   {
     name: "Illegal Pete's"
     address: "1530 16th St #101"
+    coordinates:
+      lat: 39.750870
+      long: -104.999999
     hours:
       open: "0700"
       close: "2400"
