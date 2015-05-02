@@ -1,6 +1,6 @@
 bars = [
   {
-    name: "Williams & Graham"
+    name: "Williams and Graham"
     address: "3160 Tejon St"
     coordinates:
       lat: 39.761873

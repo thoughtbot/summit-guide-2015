@@ -25,7 +25,7 @@ restaurants = [
     recommendation:
       by: "joshua"
       name: "The Big Potato"
-      why: "A loaded baked potato wrapped in a burrito."
+      why: "The best burritos in town. The line is long but it moves quick."
   }
 ]
 

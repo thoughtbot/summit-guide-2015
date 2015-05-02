@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="15px" viewBox="0 0 28 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M0,14 L8.67786478,5.3218828 L10.1772159,6.66913551 L7.37243923,10.42415 L15.8451511,2 L28,14 L0,14 Z M15.952201,3.74252717 L20.5646416,8.26220703 L19.5832739,8.26220703 L23.0404408,12.2674295 L19.1378114,9.83069378 L19.9031998,9.83069378 L18.064591,7.9178626 L18.9020811,7.9178626 L15.952201,3.74252717 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="summit">
+            <g id="Path-12">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="none" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
