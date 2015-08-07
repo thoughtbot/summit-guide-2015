@@ -42,7 +42,7 @@ coffeeStream = coffee({bare: true});
 coffeeStream.on('error', function(err) {});
 
 gulp.task("haml", function() {
-  return gulp.src(paths.haml)
+  return gulp.src(paths.haml, ["./source/index.haml"])
     .pipe(haml())
     .pipe(gulp.dest(paths.build));
 });
