@@ -18,10 +18,6 @@ angular.module("summit-guide")
       $element = document.getElementsByClassName("map")[0]
       map = new (google.maps.Map)($element, mapOptions)
 
-      google.maps.event.addDomListener $element, "mousedown", (e) ->
-        e.preventDefault()
-        false
-
       google.maps.event.addListenerOnce map, "idle", ->
         markMap(picks, map)
 
@@ -42,7 +38,7 @@ angular.module("summit-guide")
         icon: "/assets/#{list}-marker.svg"
 
       markers_list.push marker
-      google.maps.event.addListener marker, 'click', ->
+      google.maps.event.addListener marker, "mousedown", (e) ->
         showCard(place.name)
 
     cardClick = ($event) ->

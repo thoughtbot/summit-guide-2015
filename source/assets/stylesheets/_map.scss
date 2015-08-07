@@ -20,7 +20,7 @@
   .card {
     @include position(absolute, 0 0 null);
     @include transform(translateY(0));
-    transition: transform $duration;
+    @include transition(transform $duration);
     z-index: $z-map-cards + 1;
 
     &.active {

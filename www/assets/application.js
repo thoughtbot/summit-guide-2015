@@ -189,10 +189,6 @@
       };
       $element = document.getElementsByClassName("map")[0];
       map = new google.maps.Map($element, mapOptions);
-      google.maps.event.addDomListener($element, "mousedown", function(e) {
-        e.preventDefault();
-        return false;
-      });
       google.maps.event.addListenerOnce(map, "idle", function() {
         return markMap(picks, map);
       });
@@ -225,7 +221,7 @@
         icon: "/assets/" + list + "-marker.svg"
       });
       markers_list.push(marker);
-      return google.maps.event.addListener(marker, 'click', function() {
+      return google.maps.event.addListener(marker, "mousedown", function(e) {
         return showCard(place.name);
       });
     };

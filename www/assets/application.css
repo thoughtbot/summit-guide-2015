@@ -480,6 +480,8 @@ img, picture {
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
+    -webkit-transition: -webkit-transform 250ms;
+    -moz-transition: -moz-transform 250ms;
     transition: transform 250ms;
     z-index: 12; }
     .map-cards .card.active {
