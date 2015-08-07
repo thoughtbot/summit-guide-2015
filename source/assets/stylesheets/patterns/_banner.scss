@@ -1,10 +1,10 @@
 .banner {
-  align-items: center;
+  @include align-items(center);
+  @include display(flex);
+  @include justify-content(center);
   background-color: $red;
   background-position: center center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
   min-height: 30vh;
   position: relative;
   z-index: 1;
