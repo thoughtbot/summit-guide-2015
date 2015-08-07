@@ -54,6 +54,12 @@ angular.module("summit-guide")
         marker.setAnimation(null)
       , 700
 
+    getMarker = (name) ->
+      for marker in markers_list
+        if marker.title == name
+          activeMarker = marker
+      return activeMarker
+
     showCard = (name)->
       safeName = $filter('paramaterize')(name)
       allCards = document.getElementsByClassName("card")
@@ -66,7 +72,8 @@ angular.module("summit-guide")
       if makeActive
         activeCard.classList.add("active")
 
-      #centerMap marker
+      marker = getMarker(name)
+      centerMap marker
 
     map = initialize()
 

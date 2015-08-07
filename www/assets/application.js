@@ -167,7 +167,7 @@
 
 (function() {
   angular.module("summit-guide").service("MapService", function($filter, PicksService) {
-    var addMarker, cardClick, centerMap, initialize, map, markMap, markers_list, picks, showCard;
+    var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
     picks = PicksService.all();
     markers_list = [];
     initialize = function() {
@@ -238,8 +238,18 @@
         return marker.setAnimation(null);
       }, 700);
     };
+    getMarker = function(name) {
+      var activeMarker, i, len, marker;
+      for (i = 0, len = markers_list.length; i < len; i++) {
+        marker = markers_list[i];
+        if (marker.title === name) {
+          activeMarker = marker;
+        }
+      }
+      return activeMarker;
+    };
     showCard = function(name) {
-      var activeCard, allCards, card, i, len, makeActive, safeName;
+      var activeCard, allCards, card, i, len, makeActive, marker, safeName;
       safeName = $filter('paramaterize')(name);
       allCards = document.getElementsByClassName("card");
       activeCard = document.querySelector(".card[data-name='" + safeName + "']");
@@ -249,8 +259,10 @@
         card.classList.remove("active");
       }
       if (makeActive) {
-        return activeCard.classList.add("active");
+        activeCard.classList.add("active");
       }
+      marker = getMarker(name);
+      return centerMap(marker);
     };
     map = initialize();
     return {
