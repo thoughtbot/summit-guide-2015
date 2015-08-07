@@ -37,11 +37,18 @@ angular.module("summit-guide")
     addMarker = (place, list, map) ->
       coordinates = new google.maps.LatLng(place.coordinates.lat, place.coordinates.long)
 
+      icon =
+        url: "/assets/marker-#{list}.png"
+        size: new google.maps.Size(129, 156)
+        scaledSize: new google.maps.Size(43, 52)
+        anchor: new google.maps.Point(21, 52)
+
       marker = new google.maps.Marker
-        position: coordinates,
-        map: map,
+        map: map
+        position: coordinates
+        animation: google.maps.Animation.DROP
+        icon: icon
         title: place.name
-        icon: "/assets/#{list}-marker.svg"
 
       markers_list.push marker
       google.maps.event.addListener marker, "mousedown", (e) ->
@@ -52,13 +59,13 @@ angular.module("summit-guide")
 
     centerMap = (marker) ->
       map.panTo
-        lat: marker.position.G
-        lng: marker.position.K
-      marker.setAnimation(google.maps.Animation.BOUNCE)
+        lat: parseFloat marker.position.G
+        lng: parseFloat marker.position.K
 
+      marker.setAnimation(google.maps.Animation.BOUNCE)
       setTimeout ->
         marker.setAnimation(null)
-      , 700
+      , 750
 
     getMarker = (name) ->
       for marker in markers_list

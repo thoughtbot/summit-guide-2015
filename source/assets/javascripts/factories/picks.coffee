@@ -9,6 +9,7 @@ angular.module("summit-guide")
       activities: JSON.parse(localStorage["activities"])
       neighborhoods: JSON.parse(localStorage["neighborhoods"])
       office: JSON.parse(localStorage["office"])
+      hotel: JSON.parse(localStorage["hotel"])
 
     return {
       all: -> picks

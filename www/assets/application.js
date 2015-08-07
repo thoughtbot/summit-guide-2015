@@ -220,13 +220,20 @@
       return results;
     };
     addMarker = function(place, list, map) {
-      var coordinates, marker;
+      var coordinates, icon, marker;
       coordinates = new google.maps.LatLng(place.coordinates.lat, place.coordinates.long);
+      icon = {
+        url: "/assets/marker-" + list + ".png",
+        size: new google.maps.Size(129, 156),
+        scaledSize: new google.maps.Size(43, 52),
+        anchor: new google.maps.Point(21, 52)
+      };
       marker = new google.maps.Marker({
-        position: coordinates,
         map: map,
-        title: place.name,
-        icon: "/assets/" + list + "-marker.svg"
+        position: coordinates,
+        animation: google.maps.Animation.DROP,
+        icon: icon,
+        title: place.name
       });
       markers_list.push(marker);
       return google.maps.event.addListener(marker, "mousedown", function(e) {
@@ -238,13 +245,13 @@
     };
     centerMap = function(marker) {
       map.panTo({
-        lat: marker.position.G,
-        lng: marker.position.K
+        lat: parseFloat(marker.position.G),
+        lng: parseFloat(marker.position.K)
       });
       marker.setAnimation(google.maps.Animation.BOUNCE);
       return setTimeout(function() {
         return marker.setAnimation(null);
-      }, 700);
+      }, 750);
     };
     getMarker = function(name) {
       var activeMarker, i, len, marker;
@@ -293,7 +300,8 @@
       goods: JSON.parse(localStorage["goods"]),
       activities: JSON.parse(localStorage["activities"]),
       neighborhoods: JSON.parse(localStorage["neighborhoods"]),
-      office: JSON.parse(localStorage["office"])
+      office: JSON.parse(localStorage["office"]),
+      hotel: JSON.parse(localStorage["hotel"])
     };
     return {
       all: function() {
@@ -460,6 +468,24 @@
   ];
 
   localStorage.setItem("goods", JSON.stringify(goods));
+
+}).call(this);
+
+(function() {
+  var hotel;
+
+  hotel = [
+    {
+      name: "Sheraton Downtown Denver",
+      address: "1550 Court Pl",
+      coordinates: {
+        lat: 39.742063,
+        long: -104.988845
+      }
+    }
+  ];
+
+  localStorage.setItem("hotel", JSON.stringify(hotel));
 
 }).call(this);
 
