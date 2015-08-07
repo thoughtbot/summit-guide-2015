@@ -6,10 +6,16 @@ angular.module("summit-guide")
     initialize = () ->
       mapOptions =
         center: new (google.maps.LatLng)(39.746541, -104.993922)
+        disableDefaultUI: true
         zoom: 17
         mapTypeId: google.maps.MapTypeId.ROADMAP
         styles: [
           featureType: "poi"
+          stylers: [
+            visibility: "off"
+          ]
+        ,
+          featureType: "transit"
           stylers: [
             visibility: "off"
           ]
