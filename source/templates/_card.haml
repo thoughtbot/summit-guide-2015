@@ -13,11 +13,11 @@
         %i.icon.ion-clock
         {{ place.hours.open | time }}-{{ place.hours.close | time }}
 
-  .item.item-text-wrap{ng-show: "place.recommendation.name"}
-    %p
+  .item.item-text-wrap{ng-show: "place.recommendation.name || place.recommendation.why"}
+    %p{ng-show: "place.recommendation.name"}
       %strong< Best Item:
       {{ place.recommendation.name }}
 
-    %p
+    %p{ng-show: "place.recommendation.why"}
       %strong< Why I Love It:
       {{ place.recommendation.why }}

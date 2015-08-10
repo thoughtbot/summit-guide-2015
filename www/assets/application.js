@@ -309,52 +309,6 @@
 }).call(this);
 
 (function() {
-  angular.module("summit-guide").filter("paramaterize", function() {
-    return function(string) {
-      if (string) {
-        return string.replace(/'/g, "").replace(/"/g, "").replace(/ /g, "").toLowerCase();
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").filter("time", function() {
-    var formatTime;
-    formatTime = function(time) {
-      var hour, minutes, period, split;
-      split = time.match(/.{1,2}/g);
-      hour = split[0];
-      if (hour < 12 || hour > 23) {
-        period = "AM";
-      } else {
-        period = "PM";
-      }
-      if (hour > 12) {
-        hour -= 12;
-      }
-      hour = parseInt(hour, 10);
-      minutes = split[1];
-      return hour + ":" + minutes + period;
-    };
-    return function(time) {
-      var formattedTime, i, len, times;
-      if (time) {
-        formattedTime = [];
-        times = time.split("-");
-        for (i = 0, len = times.length; i < len; i++) {
-          time = times[i];
-          formattedTime.push(formatTime(time));
-        }
-        return formattedTime.join(" to ");
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
   var activities;
 
   activities = [
@@ -437,6 +391,9 @@
       hours: {
         open: "0630",
         close: "1900"
+      },
+      recommendation: {
+        by: "Joshua"
       }
     }
   ];
@@ -603,9 +560,85 @@
         open: "1100",
         close: "2400"
       }
+    }, {
+      name: "D Bar",
+      address: "19th & Pennsylvania St",
+      coordinates: {
+        lat: 39.746184,
+        long: -104.981086
+      },
+      hours: {
+        open: "1100",
+        close: "2200"
+      },
+      recommendation: {
+        by: "amy",
+        name: "Amazing Desserts! Try the fresh churros with chocolate dip"
+      }
+    }, {
+      name: "Denver Pizza Company",
+      address: "309 W 11th Ave",
+      coordinates: {
+        lat: 39.734038,
+        long: -104.992046
+      },
+      hours: {
+        open: "1100",
+        close: "2200"
+      },
+      recommendation: {
+        by: "amy",
+        name: "Get the 5280 pizza. Soooo good."
+      }
     }
   ];
 
   localStorage.setItem("restaurants", JSON.stringify(restaurants));
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").filter("paramaterize", function() {
+    return function(string) {
+      if (string) {
+        return string.replace(/'/g, "").replace(/"/g, "").replace(/ /g, "").toLowerCase();
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").filter("time", function() {
+    var formatTime;
+    formatTime = function(time) {
+      var hour, minutes, period, split;
+      split = time.match(/.{1,2}/g);
+      hour = split[0];
+      if (hour < 12 || hour > 23) {
+        period = "AM";
+      } else {
+        period = "PM";
+      }
+      if (hour > 12) {
+        hour -= 12;
+      }
+      hour = parseInt(hour, 10);
+      minutes = split[1];
+      return hour + ":" + minutes + period;
+    };
+    return function(time) {
+      var formattedTime, i, len, times;
+      if (time) {
+        formattedTime = [];
+        times = time.split("-");
+        for (i = 0, len = times.length; i < len; i++) {
+          time = times[i];
+          formattedTime.push(formatTime(time));
+        }
+        return formattedTime.join(" to ");
+      }
+    };
+  });
 
 }).call(this);

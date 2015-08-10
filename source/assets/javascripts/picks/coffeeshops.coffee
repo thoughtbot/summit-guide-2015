@@ -18,6 +18,8 @@ coffeeshops = [
     hours:
       open: "0630"
       close: "1900"
+    recommendation:
+      by: "Joshua"
   }
 ]
 

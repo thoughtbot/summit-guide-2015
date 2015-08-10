@@ -43,6 +43,32 @@ restaurants = [
       open: "1100"
       close: "2400"
   }
+  {
+    name: "D Bar"
+    address: "19th & Pennsylvania St"
+    coordinates:
+      lat: 39.746184
+      long: -104.981086
+    hours:
+      open: "1100"
+      close: "2200"
+    recommendation:
+      by: "amy"
+      name: "Amazing Desserts! Try the fresh churros with chocolate dip"
+  }
+  {
+    name: "Denver Pizza Company"
+    address: "309 W 11th Ave"
+    coordinates:
+      lat: 39.734038
+      long: -104.992046
+    hours:
+      open: "1100"
+      close: "2200"
+    recommendation:
+      by: "amy"
+      name: "Get the 5280 pizza. Soooo good."
+  }
 ]
 
 localStorage.setItem("restaurants", JSON.stringify(restaurants))
