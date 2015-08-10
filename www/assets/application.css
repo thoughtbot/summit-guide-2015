@@ -234,10 +234,10 @@ dl {
     padding-right: 4%;
     text-align: right;
     vertical-align: top;
-    width: 21%; }
+    width: 45%; }
   dl dd {
     margin: 0.75em 0 0;
-    width: 75%; }
+    width: 50%; }
 
 section {
   border-bottom: 1px solid #DDD;
