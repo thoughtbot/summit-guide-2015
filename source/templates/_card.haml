@@ -1,6 +1,6 @@
 .card{data-name: "{{ place.name | paramaterize }}", ng-click: "cardClick($event)"}
   .item.item-divider
-    %img.avatar{ng-src: "/assets/{{place.recommendation.by}}.png", ng-show: "place.recommendation.by"}
+    %img.avatar{ng-src: "/assets/avatar-{{place.recommendation.by}}.png", ng-show: "place.recommendation.by"}
 
     %h2 {{ place.name }}
 
