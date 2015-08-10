@@ -9,6 +9,16 @@ coffeeshops = [
       open: "0600"
       close: "1800"
   }
+  {
+    name: "Novo Coffee"
+    address: "1600 Glenarm Pl"
+    coordinates:
+      lat: 39.744037
+      long: -104.989616
+    hours:
+      open: "0630"
+      close: "1900"
+  }
 ]
 
 localStorage.setItem("coffeeshops", JSON.stringify(coffeeshops))

@@ -22,10 +22,26 @@ restaurants = [
     hours:
       open: "0700"
       close: "2400"
-    recommendation:
-      by: "joshua"
-      name: "The Big Potato"
-      why: "The best burritos in town. The line is long but it moves quick."
+  }
+  {
+    name: "Wynkoop Brewery"
+    address: "1634 18th St"
+    coordinates:
+      lat: 39.753394
+      long: -104.998427
+    hours:
+      open: "1100"
+      close: "0200"
+  }
+  {
+    name: "Ace"
+    address: "501 E 17th Ave"
+    coordinates:
+      lat: 39.743502
+      long: -104.980749
+    hours:
+      open: "1100"
+      close: "2400"
   }
 ]
 

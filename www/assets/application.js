@@ -323,21 +323,20 @@
   angular.module("summit-guide").filter("time", function() {
     var formatTime;
     formatTime = function(time) {
-      var hours, minutes, period, split;
+      var hour, minutes, period, split;
       split = time.match(/.{1,2}/g);
-      if (split[0] < 12) {
+      hour = split[0];
+      if (hour < 12 || hour > 23) {
         period = "AM";
       } else {
         period = "PM";
       }
-      if (split[0] < 13) {
-        hours = split[0];
-      } else {
-        hours = split[0] - 12;
+      if (hour > 12) {
+        hour -= 12;
       }
-      hours = parseInt(hours, 10);
+      hour = parseInt(hour, 10);
       minutes = split[1];
-      return hours + ":" + minutes + period;
+      return hour + ":" + minutes + period;
     };
     return function(time) {
       var formattedTime, i, len, times;
@@ -360,15 +359,29 @@
 
   activities = [
     {
-      name: "Oh Heck Yeah",
-      address: "15th & Champa St",
+      name: "US Mint",
+      address: "320 W Colfax Ave",
       coordinates: {
-        lat: 39.745616,
-        long: -104.995132
+        lat: 39.739338,
+        long: -104.992341
       },
       hours: {
-        open: "1900",
-        close: "2200"
+        open: "800",
+        close: "1530"
+      }
+    }, {
+      name: "Coors Field",
+      address: "2001 Blake St",
+      coordinates: {
+        lat: 39.755882,
+        long: -104.994178
+      }
+    }, {
+      name: "Commons on Champa",
+      address: "1245 Champa St",
+      coordinates: {
+        lat: 39.743656,
+        long: -104.998167
       }
     }
   ];
@@ -413,6 +426,17 @@
       hours: {
         open: "0600",
         close: "1800"
+      }
+    }, {
+      name: "Novo Coffee",
+      address: "1600 Glenarm Pl",
+      coordinates: {
+        lat: 39.744037,
+        long: -104.989616
+      },
+      hours: {
+        open: "0630",
+        close: "1900"
       }
     }
   ];
@@ -488,11 +512,18 @@
 
   neighborhoods = [
     {
-      name: "Uptown",
-      address: "19th St & Pennsylvania St",
+      name: "Sakura Square",
+      address: "19th St & Lawrence St",
       coordinates: {
-        lat: 39.746184,
-        long: -104.981086
+        lat: 39.751747,
+        long: -104.993086
+      }
+    }, {
+      name: "Union Station",
+      address: "17th & Wynkoop St",
+      coordinates: {
+        lat: 39.752838,
+        long: -104.999699
       }
     }
   ];
@@ -549,11 +580,28 @@
       hours: {
         open: "0700",
         close: "2400"
+      }
+    }, {
+      name: "Wynkoop Brewery",
+      address: "1634 18th St",
+      coordinates: {
+        lat: 39.753394,
+        long: -104.998427
       },
-      recommendation: {
-        by: "joshua",
-        name: "The Big Potato",
-        why: "The best burritos in town. The line is long but it moves quick."
+      hours: {
+        open: "1100",
+        close: "0200"
+      }
+    }, {
+      name: "Ace",
+      address: "501 E 17th Ave",
+      coordinates: {
+        lat: 39.743502,
+        long: -104.980749
+      },
+      hours: {
+        open: "1100",
+        close: "2400"
       }
     }
   ];

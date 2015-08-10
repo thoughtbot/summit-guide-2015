@@ -2,23 +2,22 @@ angular.module("summit-guide")
   .filter "time", ->
     formatTime = (time) ->
       split = time.match(/.{1,2}/g)
+      hour = split[0]
 
-      if split[0] < 12
+      if hour < 12 || hour > 23
         period = "AM"
       else
         period = "PM"
 
 
-      if split[0] < 13
-        hours = split[0]
-      else
-        hours = split[0] - 12
+      if hour > 12
+        hour -= 12
 
-      hours = parseInt(hours, 10)
+      hour = parseInt(hour, 10)
 
       minutes = split[1]
 
-      return "#{hours}:#{minutes}#{period}"
+      return "#{hour}:#{minutes}#{period}"
 
     (time) ->
       if time
