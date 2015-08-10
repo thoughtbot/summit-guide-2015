@@ -122,30 +122,6 @@
 }).call(this);
 
 (function() {
-  angular.module("summit-guide").directive("appNav", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_nav.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").directive("appToolbar", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_toolbar.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module("summit-guide").service("MapService", function($filter, PicksService) {
     var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
     picks = PicksService.all();
@@ -303,6 +279,30 @@
       all: function() {
         return schedule;
       }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appNav", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_nav.html"
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appToolbar", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_toolbar.html"
     };
   });
 
