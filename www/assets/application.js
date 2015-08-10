@@ -42,43 +42,23 @@
 
   schedule = {
     "2015-08-12": {
-      "0900": "Breakfast & Coffee",
-      "1000": "Lightning Talks",
-      "1130": "Snack Time",
-      "1230": "Hangout",
-      "1300": "Lunch @ Snarfs",
-      "1400": "Lightning Talks",
-      "1500": "Games",
-      "1600": "Relax",
-      "1730": "Happy Hour",
-      "1900": "Dinner",
-      "2200": "Party!"
+      "0900-1745": "Office Opens",
+      "1200-1500": "Lunch in the Office",
+      "1330-1800": "US Mint Tour (20 people max)",
+      "1500": "Union Station",
+      "1800-2200": "Welcome Dinner & Billiards @ Wynkoop Brewery (1634 18th St)"
     },
     "2015-08-13": {
-      "0900": "Breakfast & Coffee",
-      "1000": "Lightning Talks",
-      "1130": "Snack Time",
-      "1230": "Hangout",
-      "1300": "Lunch @ Snarfs",
-      "1400": "Lightning Talks",
-      "1500": "Games",
-      "1600": "Relax",
-      "1730": "Happy Hour",
-      "1900": "Dinner",
-      "2200": "Party!"
+      "0900-1200": "Breakfast @ The Commons on Champa (1245 Champa St)",
+      "0945-1200": "Lightning Talks & Chad’s Company Address @ The Commons on Champa",
+      "1230-1730": "Small group activities",
+      "1830": "Meet in Sheraton’s Lobby for mystery dinner assignment & head to dinner",
+      "2100": "Return to Sheraton for drinks @ 16Mix Lounge"
     },
     "2015-08-14": {
-      "0900": "Breakfast & Coffee",
-      "1000": "Lightning Talks",
-      "1130": "Snack Time",
-      "1230": "Hangout",
-      "1300": "Lunch @ Snarfs",
-      "1400": "Lightning Talks",
-      "1500": "Games",
-      "1600": "Relax",
-      "1730": "Happy Hour",
-      "1900": "Dinner",
-      "2200": "Party!"
+      "0700-1000": "Hotel breakfast buffet @ 15|Fifty",
+      "0900-1000": "Departures for excursions",
+      "1840": "Rockies Baseball Game @ Coors Field"
     }
   };
 
@@ -341,20 +321,34 @@
 
 (function() {
   angular.module("summit-guide").filter("time", function() {
-    return function(time) {
+    var formatTime;
+    formatTime = function(time) {
       var hours, minutes, period, split;
+      split = time.match(/.{1,2}/g);
+      if (split[0] < 12) {
+        period = "AM";
+      } else {
+        period = "PM";
+      }
+      if (split[0] < 13) {
+        hours = split[0];
+      } else {
+        hours = split[0] - 12;
+      }
+      hours = parseInt(hours, 10);
+      minutes = split[1];
+      return hours + ":" + minutes + period;
+    };
+    return function(time) {
+      var formattedTime, i, len, times;
       if (time) {
-        split = time.match(/.{1,2}/g);
-        if (split[0] < 13) {
-          hours = split[0];
-          period = "am";
-        } else {
-          hours = split[0] - 12;
-          period = "pm";
+        formattedTime = [];
+        times = time.split("-");
+        for (i = 0, len = times.length; i < len; i++) {
+          time = times[i];
+          formattedTime.push(formatTime(time));
         }
-        hours = parseInt(hours, 10);
-        minutes = split[1];
-        return hours + ":" + minutes + " " + period;
+        return formattedTime.join(" to ");
       }
     };
   });

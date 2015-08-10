@@ -230,13 +230,13 @@ dl {
   dl dt {
     font-size: 0.85rem;
     font-weight: bold;
-    margin-top: 0.75em;
+    margin-top: 0.95em;
     padding-right: 4%;
     text-align: right;
-    vertical-align: 0.1em;
+    vertical-align: top;
     width: 21%; }
   dl dd {
-    margin: 0;
+    margin: 0.75em 0 0;
     width: 75%; }
 
 section {
