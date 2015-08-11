@@ -122,30 +122,6 @@
 }).call(this);
 
 (function() {
-  angular.module("summit-guide").directive("appNav", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_nav.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").directive("appToolbar", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_toolbar.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module("summit-guide").service("MapService", function($filter, PicksService) {
     var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
     picks = PicksService.all();
@@ -302,6 +278,30 @@
       all: function() {
         return schedule;
       }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appNav", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_nav.html"
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appToolbar", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_toolbar.html"
     };
   });
 
@@ -475,8 +475,8 @@
       name: "Blackshirt Brewing",
       address: "3719 Walnut St",
       coordinates: {
-        lat: 39.768611,
-        long: -104.979758
+        lat: 39.769858,
+        long: -104.972962
       },
       hours: {
         open: "1200",
@@ -485,7 +485,7 @@
       recommendation: {
         who: "andrew",
         what: "Any beer",
-        why: "If you love sour beers this is the place. Voted best sour brewery in the nation."
+        why: "They are currently doing ONLY red ale based beers. The brewery has a different vibe and that’s a good thing."
       }
     }, {
       name: "Lost Highway Brewing",

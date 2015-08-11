@@ -45,15 +45,15 @@ bars = [
     name: "Blackshirt Brewing"
     address: "3719 Walnut St"
     coordinates:
-      lat: 39.768611
-      long: -104.979758
+      lat: 39.769858
+      long: -104.972962
     hours:
       open: "1200"
       close: "2300"
     recommendation:
       who: "andrew"
       what: "Any beer"
-      why: "If you love sour beers this is the place. Voted best sour brewery in the nation."
+      why: "They are currently doing ONLY red ale based beers. The brewery has a different vibe and that’s a good thing."
   }
   {
     name: "Lost Highway Brewing"
