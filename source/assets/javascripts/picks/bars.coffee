@@ -9,9 +9,9 @@ bars = [
       open: "1700"
       close: "0100"
     recommendation:
-      who: "andrew"
-      what: "Espresso Oak Aged Yeti"
-      why: "One of the original microbreweries in Denver that has exploded. Every beer is phenomenal."
+      who: "joshua"
+      what: "Any of the house cocktails"
+      why: "Recently voted the best bar in America. Speakeasy style with an old fashioned feel."
   }
   {
     name: "Great Divide"

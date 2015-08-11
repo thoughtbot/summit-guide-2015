@@ -84,7 +84,7 @@ restaurants = [
       close: "1400"
     recommendation:
       who: "joshua"
-      why: "Homestyle vegetarian spot with quite a few vegan options."
+      why: "Homestyle vegetarian spot with quite a few vegan options too."
   }
   {
     name: "Sams No. 3"
@@ -124,9 +124,8 @@ restaurants = [
       open: "1100"
       close: "1700"
     recommendation:
-      who: "andrew"
-      what: "Everything"
-      why: "It used to be a mortuary, but now has a great rooftop and solid cocktails."
+      who: "rachel"
+      why: "Old mortuary that is now one of the best restaurants in Denver."
   }
   {
     name: "Hops & Pie"
@@ -193,8 +192,9 @@ restaurants = [
       open: "1100"
       close: "0200"
     recommendation:
-      who: "andrew"
-      why: "Bi-level shipping container with a variety of food and a rooftop bar. The new hot spot in Denver!"
+      who: "corwin"
+      what: "Arepas"
+      why: "Good street food in a trendy environemnt. One of the best views in Denver."
   }
   {
     name: "Gaetano’s Italian Restaurant"
@@ -235,7 +235,7 @@ restaurants = [
       close: "1500"
     recommendation:
       who: "joshua"
-      what: "Fun Guy"
+      what: "Fun Guy pizza with truffle oil"
       why: "Get some fresh air and enjoy some great wood-fired pizza."
   }
 ]

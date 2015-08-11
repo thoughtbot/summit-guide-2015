@@ -33,7 +33,7 @@ coffeeshops = [
       close: "1700"
     recommendation:
       who: "rachel"
-      why: "Small, great atmosphere, even better pour overs."
+      why: "Really good coffee and it's adorable."
   }
   {
     name: "Crema"

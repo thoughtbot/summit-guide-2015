@@ -435,9 +435,9 @@
         close: "0100"
       },
       recommendation: {
-        who: "andrew",
-        what: "Espresso Oak Aged Yeti",
-        why: "One of the original microbreweries in Denver that has exploded. Every beer is phenomenal."
+        who: "joshua",
+        what: "Any of the house cocktails",
+        why: "Recently voted the best bar in America. Speakeasy style with an old fashioned feel."
       }
     }, {
       name: "Great Divide",
@@ -585,7 +585,7 @@
       },
       recommendation: {
         who: "rachel",
-        why: "Small, great atmosphere, even better pour overs."
+        why: "Really good coffee and it's adorable."
       }
     }, {
       name: "Crema",
@@ -640,8 +640,8 @@
         close: "1900"
       },
       recommendation: {
-        who: "andrew",
-        why: "Nice atmosphere showcasing what a modern dispensary in Colorado is."
+        who: "joshua",
+        why: "What a modern, professional & friendly dispensary should be."
       }
     }, {
       name: "Natural Remedies",
@@ -686,6 +686,17 @@
   goods = [
     {
       name: "I Heart Denver",
+      address: "500 16th Street",
+      coordinates: {
+        lat: 39.742870,
+        long: -104.990508
+      },
+      hours: {
+        open: "1000",
+        close: "2000"
+      }
+    }, {
+      name: "Little Man Ice Cream",
       address: "500 16th Street",
       coordinates: {
         lat: 39.742870,
@@ -949,7 +960,7 @@
       },
       recommendation: {
         who: "joshua",
-        why: "Homestyle vegetarian spot with quite a few vegan options."
+        why: "Homestyle vegetarian spot with quite a few vegan options too."
       }
     }, {
       name: "Sams No. 3",
@@ -1122,7 +1133,7 @@
       },
       recommendation: {
         who: "joshua",
-        what: "Fun Guy",
+        what: "Fun Guy pizza with truffle oil",
         why: "Get some fresh air and enjoy some great wood-fired pizza."
       }
     }

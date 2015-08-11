@@ -9,8 +9,8 @@ dispensaries = [
       open: "0900"
       close: "1900"
     recommendation:
-      who: "andrew"
-      why: "Nice atmosphere showcasing what a modern dispensary in Colorado is."
+      who: "joshua"
+      why: "What a modern, professional & friendly dispensary should be."
   }
   {
     name: "Natural Remedies"
