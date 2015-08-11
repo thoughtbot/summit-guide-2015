@@ -146,6 +146,214 @@
 }).call(this);
 
 (function() {
+  angular.module("summit-guide").service("MapService", function($filter, PicksService) {
+    var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
+    picks = PicksService.all();
+    markers_list = [];
+    initialize = function() {
+      var $element, map, mapOptions;
+      mapOptions = {
+        center: new google.maps.LatLng(39.746541, -104.993922),
+        disableDefaultUI: true,
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [
+          {
+            featureType: "poi",
+            stylers: [
+              {
+                visibility: "off"
+              }
+            ]
+          }, {
+            featureType: "transit",
+            stylers: [
+              {
+                visibility: "off"
+              }
+            ]
+          }
+        ]
+      };
+      $element = document.getElementsByClassName("map")[0];
+      map = new google.maps.Map($element, mapOptions);
+      google.maps.event.addListenerOnce(map, "idle", function() {
+        return markMap(picks, map);
+      });
+      return map;
+    };
+    markMap = function(places, map) {
+      var key, list, place, results;
+      results = [];
+      for (list in picks) {
+        places = picks[list];
+        results.push((function() {
+          var results1;
+          results1 = [];
+          for (key in places) {
+            place = places[key];
+            results1.push(addMarker(place, list, map));
+          }
+          return results1;
+        })());
+      }
+      return results;
+    };
+    addMarker = function(place, list, map) {
+      var coordinates, icon, marker;
+      coordinates = new google.maps.LatLng(place.coordinates.lat, place.coordinates.long);
+      icon = {
+        url: "/assets/marker-" + list + ".png",
+        size: new google.maps.Size(129, 156),
+        scaledSize: new google.maps.Size(43, 52),
+        anchor: new google.maps.Point(21, 52)
+      };
+      marker = new google.maps.Marker({
+        map: map,
+        position: coordinates,
+        icon: icon,
+        title: place.name
+      });
+      markers_list.push(marker);
+      return google.maps.event.addListener(marker, "mousedown", function(e) {
+        return showCard(place.name);
+      });
+    };
+    cardClick = function($event) {
+      return $event.currentTarget.classList.remove("active");
+    };
+    centerMap = function(marker) {
+      map.panTo({
+        lat: parseFloat(marker.position.G),
+        lng: parseFloat(marker.position.K)
+      });
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      return setTimeout(function() {
+        return marker.setAnimation(null);
+      }, 750);
+    };
+    getMarker = function(name) {
+      var activeMarker, i, len, marker;
+      for (i = 0, len = markers_list.length; i < len; i++) {
+        marker = markers_list[i];
+        if (marker.title === name) {
+          activeMarker = marker;
+        }
+      }
+      return activeMarker;
+    };
+    showCard = function(name) {
+      var activeCard, allCards, card, i, len, makeActive, marker, safeName;
+      safeName = $filter('paramaterize')(name);
+      allCards = document.getElementsByClassName("card");
+      activeCard = document.querySelector(".card[data-name='" + safeName + "']");
+      makeActive = !activeCard.classList.contains("active");
+      for (i = 0, len = allCards.length; i < len; i++) {
+        card = allCards[i];
+        card.classList.remove("active");
+      }
+      if (makeActive) {
+        activeCard.classList.add("active");
+      }
+      marker = getMarker(name);
+      return centerMap(marker);
+    };
+    map = initialize();
+    return {
+      showCard: function(name) {
+        return showCard(name);
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").service("PicksService", function($http) {
+    var picks;
+    picks = {
+      bars: JSON.parse(localStorage["bars"]),
+      coffeeshops: JSON.parse(localStorage["coffeeshops"]),
+      restaurants: JSON.parse(localStorage["restaurants"]),
+      dispensaries: JSON.parse(localStorage["dispensaries"]),
+      goods: JSON.parse(localStorage["goods"]),
+      activities: JSON.parse(localStorage["activities"]),
+      neighborhoods: JSON.parse(localStorage["neighborhoods"]),
+      office: JSON.parse(localStorage["office"]),
+      hotel: JSON.parse(localStorage["hotel"])
+    };
+    return {
+      all: function() {
+        return picks;
+      },
+      get: function(list) {
+        return picks[list];
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").service("ScheduleService", function($http) {
+    var schedule;
+    schedule = JSON.parse(localStorage["schedule"]);
+    return {
+      all: function() {
+        return schedule;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").filter("paramaterize", function() {
+    return function(string) {
+      if (string) {
+        return string.replace(/'/g, "").replace(/"/g, "").replace(/ /g, "").toLowerCase();
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").filter("time", function() {
+    var formatTime;
+    formatTime = function(time) {
+      var hour, minutes, period, split;
+      split = time.match(/.{1,2}/g);
+      hour = split[0];
+      if (hour < 12 || hour > 23) {
+        period = "AM";
+      } else {
+        period = "PM";
+      }
+      if (hour > 12) {
+        hour -= 12;
+      }
+      hour = parseInt(hour, 10);
+      minutes = split[1];
+      return hour + ":" + minutes + period;
+    };
+    return function(time) {
+      var formattedTime, i, len, times;
+      if (time) {
+        formattedTime = [];
+        times = time.split("-");
+        for (i = 0, len = times.length; i < len; i++) {
+          time = times[i];
+          formattedTime.push(formatTime(time));
+        }
+        return formattedTime.join(" to ");
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
   var activities;
 
   activities = [
@@ -656,13 +864,13 @@
         close: "2300"
       },
       recommendation: {
-        by: "corwin",
+        who: "corwin",
         what: "The Franklin",
         why: "Fresh made biscuits, fried chicken, what more is there to want?"
       }
     }, {
       name: "Illegal Pete's",
-      address: "1530 16th St #101",
+      address: "1530 16th St",
       coordinates: {
         lat: 39.750870,
         long: -104.999999
@@ -670,6 +878,11 @@
       hours: {
         open: "0700",
         close: "2400"
+      },
+      recommendation: {
+        who: "joshua",
+        what: "A giant burrito",
+        why: "Authentically Denver. The line moves fast."
       }
     }, {
       name: "Wynkoop Brewery",
@@ -896,217 +1109,25 @@
         what: "Taylor Pork Roll, Cheddar Cheese, Fried Egg, Everything Bagel Sandwich",
         why: "The best bagels outside of NYC. He molecularly changes the water to match NYC’s."
       }
+    }, {
+      name: "Brava! Pizzeria della Strada",
+      address: "1601 Arapahoe St",
+      coordinates: {
+        lat: 39.748099,
+        long: -104.995687
+      },
+      hours: {
+        open: "1100",
+        close: "1500"
+      },
+      recommendation: {
+        who: "joshua",
+        what: "Fun Guy",
+        why: "Get some fresh air and enjoy some great wood-fired pizza."
+      }
     }
   ];
 
   localStorage.setItem("restaurants", JSON.stringify(restaurants));
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").filter("paramaterize", function() {
-    return function(string) {
-      if (string) {
-        return string.replace(/'/g, "").replace(/"/g, "").replace(/ /g, "").toLowerCase();
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").filter("time", function() {
-    var formatTime;
-    formatTime = function(time) {
-      var hour, minutes, period, split;
-      split = time.match(/.{1,2}/g);
-      hour = split[0];
-      if (hour < 12 || hour > 23) {
-        period = "AM";
-      } else {
-        period = "PM";
-      }
-      if (hour > 12) {
-        hour -= 12;
-      }
-      hour = parseInt(hour, 10);
-      minutes = split[1];
-      return hour + ":" + minutes + period;
-    };
-    return function(time) {
-      var formattedTime, i, len, times;
-      if (time) {
-        formattedTime = [];
-        times = time.split("-");
-        for (i = 0, len = times.length; i < len; i++) {
-          time = times[i];
-          formattedTime.push(formatTime(time));
-        }
-        return formattedTime.join(" to ");
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").service("MapService", function($filter, PicksService) {
-    var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
-    picks = PicksService.all();
-    markers_list = [];
-    initialize = function() {
-      var $element, map, mapOptions;
-      mapOptions = {
-        center: new google.maps.LatLng(39.746541, -104.993922),
-        disableDefaultUI: true,
-        zoom: 17,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-          {
-            featureType: "poi",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          }, {
-            featureType: "transit",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          }
-        ]
-      };
-      $element = document.getElementsByClassName("map")[0];
-      map = new google.maps.Map($element, mapOptions);
-      google.maps.event.addListenerOnce(map, "idle", function() {
-        return markMap(picks, map);
-      });
-      return map;
-    };
-    markMap = function(places, map) {
-      var key, list, place, results;
-      results = [];
-      for (list in picks) {
-        places = picks[list];
-        results.push((function() {
-          var results1;
-          results1 = [];
-          for (key in places) {
-            place = places[key];
-            results1.push(addMarker(place, list, map));
-          }
-          return results1;
-        })());
-      }
-      return results;
-    };
-    addMarker = function(place, list, map) {
-      var coordinates, icon, marker;
-      coordinates = new google.maps.LatLng(place.coordinates.lat, place.coordinates.long);
-      icon = {
-        url: "/assets/marker-" + list + ".png",
-        size: new google.maps.Size(129, 156),
-        scaledSize: new google.maps.Size(43, 52),
-        anchor: new google.maps.Point(21, 52)
-      };
-      marker = new google.maps.Marker({
-        map: map,
-        position: coordinates,
-        icon: icon,
-        title: place.name
-      });
-      markers_list.push(marker);
-      return google.maps.event.addListener(marker, "mousedown", function(e) {
-        return showCard(place.name);
-      });
-    };
-    cardClick = function($event) {
-      return $event.currentTarget.classList.remove("active");
-    };
-    centerMap = function(marker) {
-      map.panTo({
-        lat: parseFloat(marker.position.G),
-        lng: parseFloat(marker.position.K)
-      });
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-      return setTimeout(function() {
-        return marker.setAnimation(null);
-      }, 750);
-    };
-    getMarker = function(name) {
-      var activeMarker, i, len, marker;
-      for (i = 0, len = markers_list.length; i < len; i++) {
-        marker = markers_list[i];
-        if (marker.title === name) {
-          activeMarker = marker;
-        }
-      }
-      return activeMarker;
-    };
-    showCard = function(name) {
-      var activeCard, allCards, card, i, len, makeActive, marker, safeName;
-      safeName = $filter('paramaterize')(name);
-      allCards = document.getElementsByClassName("card");
-      activeCard = document.querySelector(".card[data-name='" + safeName + "']");
-      makeActive = !activeCard.classList.contains("active");
-      for (i = 0, len = allCards.length; i < len; i++) {
-        card = allCards[i];
-        card.classList.remove("active");
-      }
-      if (makeActive) {
-        activeCard.classList.add("active");
-      }
-      marker = getMarker(name);
-      return centerMap(marker);
-    };
-    map = initialize();
-    return {
-      showCard: function(name) {
-        return showCard(name);
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").service("PicksService", function($http) {
-    var picks;
-    picks = {
-      bars: JSON.parse(localStorage["bars"]),
-      coffeeshops: JSON.parse(localStorage["coffeeshops"]),
-      restaurants: JSON.parse(localStorage["restaurants"]),
-      dispensaries: JSON.parse(localStorage["dispensaries"]),
-      goods: JSON.parse(localStorage["goods"]),
-      activities: JSON.parse(localStorage["activities"]),
-      neighborhoods: JSON.parse(localStorage["neighborhoods"]),
-      office: JSON.parse(localStorage["office"]),
-      hotel: JSON.parse(localStorage["hotel"])
-    };
-    return {
-      all: function() {
-        return picks;
-      },
-      get: function(list) {
-        return picks[list];
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").service("ScheduleService", function($http) {
-    var schedule;
-    schedule = JSON.parse(localStorage["schedule"]);
-    return {
-      all: function() {
-        return schedule;
-      }
-    };
-  });
 
 }).call(this);

@@ -9,19 +9,23 @@ restaurants = [
       open: "0900"
       close: "2300"
     recommendation:
-      by: "corwin"
+      who: "corwin"
       what: "The Franklin"
       why: "Fresh made biscuits, fried chicken, what more is there to want?"
   }
   {
     name: "Illegal Pete's"
-    address: "1530 16th St #101"
+    address: "1530 16th St"
     coordinates:
       lat: 39.750870
       long: -104.999999
     hours:
       open: "0700"
       close: "2400"
+    recommendation:
+      who: "joshua"
+      what: "A giant burrito"
+      why: "Authentically Denver. The line moves fast."
   }
   {
     name: "Wynkoop Brewery"
@@ -219,6 +223,20 @@ restaurants = [
       who: "andrew"
       what: "Taylor Pork Roll, Cheddar Cheese, Fried Egg, Everything Bagel Sandwich"
       why: "The best bagels outside of NYC. He molecularly changes the water to match NYC’s."
+  }
+  {
+    name: "Brava! Pizzeria della Strada"
+    address: "1601 Arapahoe St"
+    coordinates:
+      lat: 39.748099
+      long: -104.995687
+    hours:
+      open: "1100"
+      close: "1500"
+    recommendation:
+      who: "joshua"
+      what: "Fun Guy"
+      why: "Get some fresh air and enjoy some great wood-fired pizza."
   }
 ]
 
