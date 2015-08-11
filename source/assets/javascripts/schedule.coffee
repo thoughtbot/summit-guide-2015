@@ -3,7 +3,6 @@ schedule =
     "0900-1745": "Office Opens"
     "1200-1500": "Lunch in the Office"
     "1330-1800": "US Mint Tour (20 people max)"
-    "1500": "Union Station"
     "1800-2200": "Welcome Dinner & Billiards @ Wynkoop Brewery (1634 18th St)"
 
   "2015-08-13":

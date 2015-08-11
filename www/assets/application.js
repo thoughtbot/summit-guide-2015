@@ -45,7 +45,6 @@
       "0900-1745": "Office Opens",
       "1200-1500": "Lunch in the Office",
       "1330-1800": "US Mint Tour (20 people max)",
-      "1500": "Union Station",
       "1800-2200": "Welcome Dinner & Billiards @ Wynkoop Brewery (1634 18th St)"
     },
     "2015-08-13": {
@@ -117,6 +116,30 @@
 (function() {
   angular.module("summit-guide").controller("SummitController", function($scope, ScheduleService) {
     return $scope.schedule = ScheduleService.all();
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appNav", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_nav.html"
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appToolbar", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_toolbar.html"
+    };
   });
 
 }).call(this);
@@ -278,30 +301,6 @@
       all: function() {
         return schedule;
       }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").directive("appNav", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_nav.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").directive("appToolbar", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_toolbar.html"
     };
   });
 
