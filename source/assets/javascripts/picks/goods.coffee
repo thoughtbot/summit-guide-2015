@@ -13,8 +13,8 @@ goods = [
     name: "Little Man Ice Cream"
     address: "2620 16th St"
     coordinates:
-      lat: 39.742870
-      long: -104.990508
+      lat: 39.7594564
+      long: -105.011112
     hours:
       open: "1100"
       close: "2400"
