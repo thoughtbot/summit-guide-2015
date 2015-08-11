@@ -97,6 +97,19 @@ bars = [
       what: "Red IPA"
       why: "Probably the most hipster place you’ll ever enter. It looks like your grandma’s house with rocking chairs, crochet koozies, and NES."
   }
+  {
+    name: "Blake Street Vault"
+    address: "1526 Blake St"
+    coordinates:
+      lat: 39.749825
+      long: -104.999620
+    hours:
+      open: "1100"
+      close: "2400"
+    recommendation:
+      who: "sean"
+      what: "The sweet potato fries are really good"
+  }
 ]
 
 localStorage.setItem("bars", JSON.stringify(bars))

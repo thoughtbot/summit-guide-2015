@@ -46,6 +46,9 @@ restaurants = [
     hours:
       open: "1100"
       close: "2400"
+    recommendation:
+      who: "elliot"
+      why: "It's a hip spot in Uptown with a welcoming atmosphere. Eat, drink, laugh, and if you get bored, play some ping pong."
   }
   {
     name: "D Bar"
