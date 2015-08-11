@@ -46,7 +46,6 @@ angular.module("summit-guide")
       marker = new google.maps.Marker
         map: map
         position: coordinates
-        animation: google.maps.Animation.DROP
         icon: icon
         title: place.name
 

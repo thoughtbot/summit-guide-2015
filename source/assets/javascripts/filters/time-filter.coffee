@@ -9,7 +9,6 @@ angular.module("summit-guide")
       else
         period = "PM"
 
-
       if hour > 12
         hour -= 12
 
