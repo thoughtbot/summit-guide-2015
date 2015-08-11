@@ -241,6 +241,32 @@ restaurants = [
       what: "Fun Guy pizza with truffle oil"
       why: "Get some fresh air and enjoy some great wood-fired pizza."
   }
+  {
+    name: "Snooze"
+    address: "2262 Larimer St"
+    coordinates:
+      lat: 39.755494
+      long: -104.988906
+    hours:
+      open: "0630"
+      close: "1430"
+    recommendation:
+      who: "joshua"
+      why: "A hipster favorite. There's always a crowd, so go early."
+  }
+  {
+    name: "Biker Jim's Gourmet Dogs"
+    address: "2148 Larimer St"
+    coordinates:
+      lat: 39.7544491
+      long: -104.9902803
+    hours:
+      open: "1100"
+      close: "2000"
+    recommendation:
+      who: "elliot"
+      why: "A Denver staple. Put on your culinary adventurer hat and try some exotic offerings like rattlesnake, pheasant, and elk."
+  }
 ]
 
 localStorage.setItem("restaurants", JSON.stringify(restaurants))

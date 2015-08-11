@@ -122,30 +122,6 @@
 }).call(this);
 
 (function() {
-  angular.module("summit-guide").directive("appNav", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_nav.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module("summit-guide").directive("appToolbar", function() {
-    return {
-      restrict: "E",
-      replace: true,
-      transclude: true,
-      templateUrl: "templates/_toolbar.html"
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module("summit-guide").service("MapService", function($filter, PicksService) {
     var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
     picks = PicksService.all();
@@ -302,6 +278,30 @@
       all: function() {
         return schedule;
       }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appNav", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_nav.html"
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").directive("appToolbar", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      templateUrl: "templates/_toolbar.html"
     };
   });
 
@@ -535,6 +535,36 @@
         what: "Red IPA",
         why: "Probably the most hipster place you’ll ever enter. It looks like your grandma’s house with rocking chairs, crochet koozies, and NES."
       }
+    }, {
+      name: "Blake Street Vault",
+      address: "1526 Blake St",
+      coordinates: {
+        lat: 39.749825,
+        long: -104.999620
+      },
+      hours: {
+        open: "1100",
+        close: "2400"
+      },
+      recommendation: {
+        who: "sean",
+        what: "The sweet potato fries are really good"
+      }
+    }, {
+      name: "Stem Ciders",
+      address: "2811 Walnut St",
+      coordinates: {
+        lat: 39.761635,
+        long: -104.983791
+      },
+      hours: {
+        open: "1600",
+        close: "2200"
+      },
+      recommendation: {
+        who: "elliot",
+        what: "Ciders are all the rage and this place has some good ones. It's tiny inside but well worth it, and the owners are cool."
+      }
     }
   ];
 
@@ -547,17 +577,6 @@
 
   coffeeshops = [
     {
-      name: "ink! Coffee",
-      address: "618 16th St",
-      coordinates: {
-        lat: 39.744661,
-        long: -104.991854
-      },
-      hours: {
-        open: "0600",
-        close: "1800"
-      }
-    }, {
       name: "Novo Coffee",
       address: "1600 Glenarm Pl",
       coordinates: {
@@ -606,8 +625,8 @@
       name: "Huckleberry Roasters",
       address: "2500 Larimer St, Denver",
       coordinates: {
-        lat: 39.757667,
-        long: -104.986097
+        lat: 39.7576094,
+        long: -104.9862842
       },
       hours: {
         open: "0700",
@@ -697,14 +716,48 @@
       }
     }, {
       name: "Little Man Ice Cream",
-      address: "500 16th Street",
+      address: "2620 16th St",
       coordinates: {
         lat: 39.742870,
         long: -104.990508
       },
       hours: {
+        open: "1100",
+        close: "2400"
+      },
+      recommendation: {
+        who: "rachel",
+        why: "Best ice cream in town. Expect a long line."
+      }
+    }, {
+      name: "Cigars on 6th",
+      address: "707 E 6th Ave",
+      coordinates: {
+        lat: 39.725802,
+        long: -104.978427
+      },
+      hours: {
         open: "1000",
-        close: "2000"
+        close: "1700"
+      },
+      recommendation: {
+        who: "sean",
+        why: "Good selection and a really good barber too."
+      }
+    }, {
+      name: "Topo",
+      address: "2500 Larimer St",
+      coordinates: {
+        lat: 39.7577094,
+        long: -104.9861642
+      },
+      hours: {
+        open: "1100",
+        close: "1800"
+      },
+      recommendation: {
+        who: "rachel",
+        why: "This place will make you want to go camping! Hip, Colorado-style clothing, bags, and accessories. (Plus it’s  a shipping container!)"
       }
     }
   ];
@@ -916,6 +969,10 @@
       hours: {
         open: "1100",
         close: "2400"
+      },
+      recommendation: {
+        who: "elliot",
+        why: "It's a hip spot in Uptown with a welcoming atmosphere. Eat, drink, laugh, and if you get bored, play some ping pong."
       }
     }, {
       name: "D Bar",
@@ -1006,9 +1063,8 @@
         close: "1700"
       },
       recommendation: {
-        who: "andrew",
-        what: "Everything",
-        why: "It used to be a mortuary, but now has a great rooftop and solid cocktails."
+        who: "rachel",
+        why: "Old mortuary that is now one of the best restaurants in Denver."
       }
     }, {
       name: "Hops & Pie",
@@ -1085,8 +1141,9 @@
         close: "0200"
       },
       recommendation: {
-        who: "andrew",
-        why: "Bi-level shipping container with a variety of food and a rooftop bar. The new hot spot in Denver!"
+        who: "corwin",
+        what: "Arepas",
+        why: "Good street food in a trendy environemnt. One of the best views in Denver."
       }
     }, {
       name: "Gaetano’s Italian Restaurant",
@@ -1135,6 +1192,36 @@
         who: "joshua",
         what: "Fun Guy pizza with truffle oil",
         why: "Get some fresh air and enjoy some great wood-fired pizza."
+      }
+    }, {
+      name: "Snooze",
+      address: "2262 Larimer St",
+      coordinates: {
+        lat: 39.755494,
+        long: -104.988906
+      },
+      hours: {
+        open: "0630",
+        close: "1430"
+      },
+      recommendation: {
+        who: "joshua",
+        why: "A hipster favorite. There's always a crowd, so go early."
+      }
+    }, {
+      name: "Biker Jim's Gourmet Dogs",
+      address: "2148 Larimer St",
+      coordinates: {
+        lat: 39.7544491,
+        long: -104.9902803
+      },
+      hours: {
+        open: "1100",
+        close: "2000"
+      },
+      recommendation: {
+        who: "elliot",
+        why: "A Denver staple. Put on your culinary adventurer hat and try some exotic offerings like rattlesnake, pheasant, and elk."
       }
     }
   ];

@@ -110,6 +110,19 @@ bars = [
       who: "sean"
       what: "The sweet potato fries are really good"
   }
+  {
+    name: "Stem Ciders"
+    address: "2811 Walnut St"
+    coordinates:
+      lat: 39.761635
+      long: -104.983791
+    hours:
+      open: "1600"
+      close: "2200"
+    recommendation:
+      who: "elliot"
+      what: "Ciders are all the rage and this place has some good ones. It's tiny inside but well worth it, and the owners are cool."
+  }
 ]
 
 localStorage.setItem("bars", JSON.stringify(bars))

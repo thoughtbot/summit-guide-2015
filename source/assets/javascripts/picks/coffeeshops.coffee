@@ -42,8 +42,8 @@ coffeeshops = [
     name: "Huckleberry Roasters"
     address: "2500 Larimer St, Denver"
     coordinates:
-      lat: 39.757667
-      long: -104.986097
+      lat: 39.7576094
+      long: -104.9862842
     hours:
       open: "0700"
       close: "1800"

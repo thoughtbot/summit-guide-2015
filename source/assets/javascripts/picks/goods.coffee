@@ -35,6 +35,19 @@ goods = [
       who: "sean"
       why: "Good selection and a really good barber too."
   }
+  {
+    name: "Topo"
+    address: "2500 Larimer St"
+    coordinates:
+      lat: 39.7577094
+      long: -104.9861642
+    hours:
+      open: "1100"
+      close: "1800"
+    recommendation:
+      who: "rachel"
+      why: "This place will make you want to go camping! Hip, Colorado-style clothing, bags, and accessories. (Plus it’s  a shipping container!)"
+  }
 ]
 
 localStorage.setItem("goods", JSON.stringify(goods))
