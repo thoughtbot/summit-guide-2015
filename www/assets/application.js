@@ -145,6 +145,21 @@
 }).call(this);
 
 (function() {
+  angular.module("summit-guide").directive("directionsLink", function() {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: true,
+      scope: {
+        address: "@"
+      },
+      templateUrl: "templates/_directions-link.html"
+    };
+  });
+
+}).call(this);
+
+(function() {
   angular.module("summit-guide").service("MapService", function($filter, PicksService) {
     var addMarker, cardClick, centerMap, getMarker, initialize, map, markMap, markers_list, picks, showCard;
     picks = PicksService.all();
@@ -300,6 +315,20 @@
     return {
       all: function() {
         return schedule;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module("summit-guide").filter("directions_url", function() {
+    return function(address) {
+      var url;
+      if (address) {
+        url = "https://maps.google.com?daddr=";
+        address = address.replace(/, /g, "").replace(/ /g, "+").replace(/'/g, "");
+        return "" + url + address;
       }
     };
   });

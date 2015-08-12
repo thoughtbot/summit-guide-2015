@@ -13,7 +13,7 @@
         %i.icon.ion-clock
         {{ place.hours.open | time }}-{{ place.hours.close | time }}
 
-  .item.item-text-wrap{ng-show: "place.recommendation.what || place.recommendation.why"}
+  .item.item-text-wrap
     %p{ng-show: "place.recommendation.what"}
       %strong< Best Item:
       {{ place.recommendation.what }}
@@ -21,3 +21,6 @@
     %p{ng-show: "place.recommendation.why"}
       %strong< Why I Love It:
       {{ place.recommendation.why }}
+
+    %p
+      %directions-link{address: "{{place.address}}"}
